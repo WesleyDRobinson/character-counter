@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ethos Character Counter</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+</head>
+<body class="mw6 bg-near-white pa3 avenir near-black center tc">
+
+<h1 class="pa2 pa3-ns mv0 br2 fw4 bg-black-60 gold f3 f2-ns">Ethos Character Counter</h1>
+
+<p class="dib pa2 f3 b br2 bg-light-gray"><span id="main-output" class="dark-green">0 </span> / 140 </p>
+
+<form id="main-form">
+  <label for="main-input" class="db mb2 f5 fw4 dark-blue">Type your message here:</label>
+  <textarea id="main-input"
+            class="br2 h5 w-100"
+            autofocus
+            spellcheck></textarea>
+</form>
+
+<script>
+  const input = document.forms[0]
+  input.addEventListener('keyup', throttledCount)
+
+  function throttledCount() {
+    let alreadyCalled
+    if (alreadyCalled) {
+      alreadyCalled = false
+      return setTimeout(count, 300)
+    }
+    else {
+      alreadyCalled = true
+      count()
+    }
+
+    function count() {
+      const limit = 140
+      const input = document.querySelector('#main-input')
+      const output = document.querySelector('#main-output')
+      const length = input.value.length
+      output.innerHTML = length
+
+      if (length > limit) makeRed(output)
+      if (length < limit) makeGreen(output)
+    }
+  }
+
+  function makeRed(el) {
+    el.classList.remove('dark-green')
+    el.classList.add('dark-red')
+  }
+
+  function makeGreen(el) {
+    el.classList.remove('dark-red')
+    el.classList.add('dark-green')
+  }
+</script>
+</body>
+</html>
