@@ -5,20 +5,58 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ethos Character Counter</title>
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+  <style>
+    .header > h1 {
+      transform: rotate(-9.8deg) skew(-10deg) translate(-0.1rem, 0.6rem);
+    }
+
+    .svg-near-black {
+      fill: rgba(0, 0, 0, .8);
+    }
+
+    .ethos-yellow {
+      fill: #ffd22a;
+      color: #ffd22a;
+    }
+
+    .ba-ethos-yellow {
+      border: #ffd22a solid 1rem;
+    }
+  </style>
 </head>
-<body class="mw6 bg-near-white pa3 avenir near-black center tc">
+<body class="mw6 bg-near-white avenir near-black center tc">
 
-<h1 class="pa2 pa3-ns mv0 br2 fw4 bg-black-60 gold f3 f2-ns">Ethos Character Counter</h1>
+<div class="ba-ethos-yellow">
+  <div class="header relative">
+    <svg viewBox="0 0 100 20" width="100%" class="absolute top-0 left-0">
+      <path class="ethos-yellow" d="M0 0h100v2.5L0 20z" />
+      <svg class="svg-near-black" width="30%" viewBox="-10 50 383.9 136">
+        <path d="M27.2 109.2c-.1-.3-.1-.6-.1-.9.1-2.5 1.9-4.7 4.4-5.2l15.6-2.7V83.9L32 86.6c-1.9.4-3.9-.8-4.3-2.7-.1-.3-.1-.6-.1-1 .1-2.5 1.9-4.7 4.4-5.2l25.2-4.5.6-.1V50.5s-26.1 4.2-34.9 5.7C11.2 58.3 1.8 67.5 1.8 80.3c0 7.5 5.5 14.2 9.9 15.7C3.3 99.7-.8 108.8.1 117.2c1 9.7 9 20.9 23.4 18.4 13.2-2.3 24.7-4.4 35.4-6.3V107l-27.3 4.8c-2 .6-3.9-.7-4.4-2.6z"
+              class="e" />
+        <path d="M64 72.1l18.1-3.2v56.4l25.9-4.6V64.3l18.4-3.2V38.2L64 49.2z" class="t" />
+        <path d="M180.2 56.5l-21.1 3.7V32.4L133.3 37v79.3l25.8-4.6V83.8l21.1-3.7V108l25.9-4.6V24.1l-25.9 4.6z"
+              class="h" />
+        <path d="M253.8 14.5c-13.2 2.3-23.3 8-30.2 16.9-7 8.9-10.5 19.5-10.5 31.6 0 12.2 3.7 21.4 11 27.4 7.4 6 17.3 7.9 29.7 5.7 12.4-2.2 22.2-7.6 29.4-16.1 7.2-8.5 10.8-19 10.8-31.3 0-12.2-3.4-21.6-10.2-28-6.8-6.5-16.8-8.5-30-6.2zm9.1 53.2c-2.3 3-5.6 5-9.4 5.6-8.5 1.5-12.8-3.7-12.8-15.6S245 39 253.5 37.4c3.9-.7 7 .1 9.4 2.3 2.3 2.2 3.5 6.7 3.5 13.5 0 6.7-1.2 11.5-3.5 14.5z"
+              class="o" />
+        <path d="M344.1 28.2l-8.2-1.4c-2.3-.3-4.6-.7-6.8-1.4-.9-.3-1.5-1.1-1.5-2.1 0-1.2.6-2.4 1.6-3.2 1.3-1 2.9-1.7 4.6-1.9 6.5-1.2 13.4.4 20.6 4.8l5.4-20.6C355.2 1 350.4.2 345.5 0c-5.3-.3-10.6 0-15.9.9-9.6 1.7-17.2 5.4-23 11.1a28.8 28.8 0 0 0-8.6 21.3c-.1 5.1 1.6 10.1 4.9 14 3.3 3.9 8.3 6.2 15.1 7.1l8 1.1c5.2.7 7.8 2 7.8 3.9 0 2.9-2 4.7-6 5.4-7.4 1.3-15.4-.7-23.9-6.2L297.8 79c9.4 4.5 20.7 5.6 34.2 3.2 9.6-1.7 17.3-5.4 23.2-11 5.9-5.6 8.8-12.9 8.8-21.9-.1-11.8-6.7-18.9-19.9-21.1z"
+              class="s" />
+      </svg>
+    </svg>
+    <h1 class="mv0 br2 black-60 f3 f2-ns fw5 tr absolute left-0 top-1">Character Counter</h1>
+  </div>
 
-<p class="dib pa2 f3 b br2 bg-light-gray"><span id="main-output" class="dark-green">0 </span> / 140 </p>
+  <div class="mt5 flex justify-end">
+    <p class="pa2 br2 bg-light-gray f2 b"><span id="main-output" class="dark-green">0 </span> / 140 </p>
+  </div>
 
-<form id="main-form">
-  <label for="main-input" class="db mb2 f5 fw4 dark-blue">Type your message here:</label>
-  <textarea id="main-input"
-            class="br2 h5 w-100"
-            autofocus
-            spellcheck></textarea>
-</form>
+  <form id="main-form" class="mt4">
+    <label for="main-input" class="db mb2 f5 fw4 dark-blue">Type your message here:</label>
+    <textarea id="main-input"
+              class="br2 h5 w-100"
+              autofocus
+              spellcheck></textarea>
+  </form>
+</div>
 
 <script>
   const input = document.forms[0]
@@ -29,32 +67,33 @@
     if (alreadyCalled) {
       alreadyCalled = false
       return setTimeout(count, 300)
-    }
-    else {
+    } else {
       alreadyCalled = true
       count()
     }
+  }
 
-    function count() {
-      const limit = 140
-      const input = document.querySelector('#main-input')
-      const output = document.querySelector('#main-output')
-      const length = input.value.length
-      output.innerHTML = length
+  function count() {
+    const limit = 140
+    const input = document.querySelector('#main-input')
+    const output = document.querySelector('#main-output')
+    const length = input.value.length
+    output.innerHTML = length
 
-      if (length > limit) makeRed(output)
-      if (length < limit) makeGreen(output)
-    }
+    if (length > limit) makeRed(output)
+    if (length < limit) makeGreen(output)
   }
 
   function makeRed(el) {
     el.classList.remove('dark-green')
-    el.classList.add('dark-red')
+    el.classList.add('near-white')
+    el.parentElement.classList.add('bg-dark-red')
   }
 
   function makeGreen(el) {
-    el.classList.remove('dark-red')
+    el.classList.remove('near-white')
     el.classList.add('dark-green')
+    el.parentElement.classList.remove('bg-dark-red')
   }
 </script>
 </body>
